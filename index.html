@@ -1,32 +1,267 @@
-<!--<meta http-equiv="refresh" content="0; url=https://portal.fepi.br/FrameHTML/web/app/edu/PortalEducacional/login/">-->
-<a href="https://portal.fepi.br/FrameHTML/web/app/edu/PortalEducacional/login/">Portal do Aluno - Login</a><br>
-<a href="https://portal.fepi.br/FrameHTML/web/app/edu/PortalEducacional/login/?redirect=es/matricula/apresentacao">Portal
-    do Aluno - Matrícula Online</a><br>
-<a href="https://portal.fepi.br/FrameHTML/web/app/edu/PortalEducacional/login/?redirect=quadro-horario">Portal do Aluno
-    - Quadro de Horários</a><br>
-<a href="https://portal.fepi.br/FrameHTML/web/app/edu/PortalEducacional/login/?redirect=requerimentos">Portal do Aluno -
-    Requerimentos</a><br>
-<a href="https://portal.fepi.br/FrameHTML/web/app/edu/PortalEducacional/login/?redirect=faltas">Portal do Aluno -
-    Faltas</a><br>
-<a href="https://portal.fepi.br/FrameHTML/web/app/edu/PortalEducacional/login/?redirect=notas">Portal do Aluno -
-    Notas</a><br>
-<a href="https://portal.fepi.br/FrameHTML/web/app/edu/PortalEducacional/login/?redirect=financeiro.new">Portal do Aluno
-    - Financeiro</a><br>
-<a href="https://portal.fepi.br/FrameHTML/web/app/edu/PortalEducacional/login/?redirect=relatorios">Portal do Aluno -
-    Relatórios</a><br>
-<a href="https://portal.fepi.br/FrameHTML/web/app/edu/PortalEducacional/login/?redirect=grade-curricular">Portal do
-    Aluno - Grade Curricular</a><br>
-<a href="https://portal.fepi.br/FrameHTML/web/app/edu/PortalEducacional/login/?redirect=pesquisa-acervo">Biblioteca -
-    Pesquisa Acervo</a><br>
-<a href="https://portal.fepi.br/FrameHTML/web/app/edu/PortalEducacional/login/?redirect=bib-movimentacoes">Biblioteca -
-    Movimentações</a><br>
-<a href="https://portal.fepi.br/FrameHTML/web/app/edu/PortalEducacional/login/?redirect=extrato-financeiro">Extrato
-    Financeiro</a><br>
-<a href="https://m365.cloud.microsoft/apps?from=PortalHome">Microsoft Apps</a><br>
-<a href="https://teams.microsoft.com/v2/?lm=deeplink&lmsrc=officeWaffle&login_hint_safe=00003525@fepi.edu.br
-<a href=" https://teams.cloud.microsoft/">Microsoft Teams</a><br>
-<a href="https://login.microsoftonline.com/fepi.edu.br/">Login Microsoft Online</a><br>
-<a href="https://portal.office.com/account/?ref=Harmony">Porta Office Microsoft 365</a><br>
-<a href="https://fepi.grupoa.education/plataforma/">AVA Graduação</a><br>
-<a href="https://ensinodigital.fepi.br/login/index.php">AVA Pós-graduação</a><br>
-<a href="https://suporte.fepi.br">Suporte ao Aluno</a><br>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FEPI - Central de Acessos (SSO)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #0048FE;
+            --dark-blue: #003399;
+            --bg-color: #eef2f6;
+            --text-dark: #181d27;
+            --text-muted: #334155;
+            --card-bg: #ffffff;
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--dark-blue);
+            padding: 2rem;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+            flex-grow: 1;
+        }
+
+        /* Grid */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid var(--primary-blue);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 72, 254, 0.15);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .card h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--bg-color);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Links list */
+        .links-list {
+            list-style: none;
+        }
+
+        .links-list li {
+            margin-bottom: 0.75rem;
+        }
+
+        .links-list a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            padding: 0.5rem;
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+
+        .links-list a i {
+            margin-right: 10px;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            transition: var(--transition);
+        }
+
+        .links-list a:hover {
+            background-color: #f1f5f9;
+            color: var(--primary-blue);
+            padding-left: 1rem;
+        }
+
+        .links-list a:hover i {
+            color: var(--primary-blue);
+        }
+
+        /* Call to action main button */
+        .btn-main {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: white !important;
+            width: 100%;
+            text-align: center;
+            padding: 0.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 72, 254, 0.3);
+            justify-content: center !important;
+        }
+
+        .btn-main:hover {
+            background-color: var(--dark-blue) !important;
+            transform: scale(1.02);
+            padding-left: 0.75rem !important; /* Override hover effect */
+        }
+
+        .btn-main i {
+            color: white !important;
+            font-size: 1.1rem !important;
+            margin-right: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: #94a3b8;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>FEPI - Centro Universitário</h1>
+        <p>Central de Acessos (SSO)</p>
+    </header>
+
+    <div class="container">
+        <div class="dashboard-grid">
+
+            <!-- Portal do Aluno Card -->
+            <div class="card">
+                <i class="fa-solid fa-user-graduate card-icon"></i>
+                <h2>Portal do Aluno</h2>
+                
+                <a href="https://portal.fepi.br/FrameHTML/web/app/edu/PortalEducacional/login/" class="links-list a btn-main">
+                    <i class="fa-solid fa-right-to-bracket"></i> Acessar Portal
+                </a>
+                
+                <ul class="links-list">
+                    <li><a href="https://portal.fepi.br/FrameHTML/web/app/edu/PortalEducacional/login/?redirect=es/matricula/apresentacao"><i class="fa-solid fa-id-card"></i> Matrícula Online</a></li>
+                    <li><a href="https://portal.fepi.br/FrameHTML/web/app/edu/PortalEducacional/login/?redirect=quadro-horario"><i class="fa-regular fa-calendar-days"></i> Quadro de Horários</a></li>
+                    <li><a href="https://portal.fepi.br/FrameHTML/web/app/edu/PortalEducacional/login/?redirect=requerimentos"><i class="fa-solid fa-file-signature"></i> Requerimentos</a></li>
+                    <li><a href="https://portal.fepi.br/FrameHTML/web/app/edu/PortalEducacional/login/?redirect=faltas"><i class="fa-solid fa-clipboard-user"></i> Faltas</a></li>
+                    <li><a href="https://portal.fepi.br/FrameHTML/web/app/edu/PortalEducacional/login/?redirect=notas"><i class="fa-solid fa-star"></i> Notas</a></li>
+                    <li><a href="https://portal.fepi.br/FrameHTML/web/app/edu/PortalEducacional/login/?redirect=financeiro.new"><i class="fa-solid fa-wallet"></i> Financeiro</a></li>
+                    <li><a href="https://portal.fepi.br/FrameHTML/web/app/edu/PortalEducacional/login/?redirect=extrato-financeiro"><i class="fa-solid fa-file-invoice-dollar"></i> Extrato Financeiro</a></li>
+                    <li><a href="https://portal.fepi.br/FrameHTML/web/app/edu/PortalEducacional/login/?redirect=relatorios"><i class="fa-solid fa-chart-pie"></i> Relatórios</a></li>
+                    <li><a href="https://portal.fepi.br/FrameHTML/web/app/edu/PortalEducacional/login/?redirect=grade-curricular"><i class="fa-solid fa-book-open"></i> Grade Curricular</a></li>
+                </ul>
+            </div>
+
+            <!-- Biblioteca & Suporte Card -->
+            <div class="card">
+                <i class="fa-solid fa-book-bookmark card-icon"></i>
+                <h2>Biblioteca & Suporte</h2>
+                <ul class="links-list">
+                    <li><a href="https://portal.fepi.br/FrameHTML/web/app/edu/PortalEducacional/login/?redirect=pesquisa-acervo"><i class="fa-solid fa-magnifying-glass"></i> Pesquisa Acervo</a></li>
+                    <li><a href="https://portal.fepi.br/FrameHTML/web/app/edu/PortalEducacional/login/?redirect=bib-movimentacoes"><i class="fa-solid fa-right-left"></i> Movimentações</a></li>
+                    <li style="margin-top: 1.5rem; border-top: 1px solid #eef2f6; padding-top: 1.5rem;">
+                        <a href="https://suporte.fepi.br" style="color: var(--primary-blue); font-weight: 600;"><i class="fa-solid fa-headset" style="color: var(--primary-blue);"></i> Suporte ao Aluno</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- AVA Card -->
+            <div class="card">
+                <i class="fa-solid fa-laptop-code card-icon"></i>
+                <h2>Ambiente Virtual (AVA)</h2>
+                <ul class="links-list">
+                    <li><a href="https://fepi.grupoa.education/plataforma/"><i class="fa-solid fa-chalkboard-user"></i> AVA Graduação</a></li>
+                    <li><a href="https://ensinodigital.fepi.br/login/index.php"><i class="fa-solid fa-graduation-cap"></i> AVA Pós-graduação</a></li>
+                </ul>
+            </div>
+
+            <!-- Microsoft 365 Card -->
+            <div class="card">
+                <i class="fa-brands fa-microsoft card-icon"></i>
+                <h2>Ecossistema Microsoft</h2>
+                <ul class="links-list">
+                    <li><a href="https://m365.cloud.microsoft/apps?from=PortalHome"><i class="fa-solid fa-box"></i> Microsoft Apps</a></li>
+                    <li><a href="https://teams.cloud.microsoft/"><i class="fa-solid fa-users-viewfinder"></i> Microsoft Teams</a></li>
+                    <li><a href="https://login.microsoftonline.com/fepi.edu.br/"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login Microsoft Online</a></li>
+                    <li><a href="https://portal.office.com/account/?ref=Harmony"><i class="fa-solid fa-cloud"></i> Portal Office Microsoft 365</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 FEPI - Centro Universitário. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
